@@ -21,6 +21,12 @@ from sklearn.model_selection import GridSearchCV
 
 
 def load_data(database_filepath):
+    '''
+    This method recive database_file path
+    and read the information from that database
+    and store it into a dataframe 
+    and return that dataframe
+    '''
     # run the database file
     engine = create_engine('sqlite:///{}'.format(database_filepath))
     # run the messages table
@@ -33,6 +39,10 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    '''
+    This method receive a text and split it into words and store them into an array     
+    and return the array     
+    '''
     # Splitting text into words by strings of 
     # alphanumeric characters (a-z, A-Z, 0-9 and ‘_’)
     words=re.split(r'\W+', text)
@@ -50,6 +60,10 @@ def tokenize(text):
 
 
 def build_model():
+    '''
+    This method builds the model 
+    and return it
+    '''
     # Build a pipeline
     pipeline =Pipeline([
         ('vect', CountVectorizer()),
@@ -69,7 +83,9 @@ def build_model():
 
 
 def evaluate_model(model, X_test, y_test):
-    
+    '''
+    This method evaluate the model 
+    '''
     y_prediction = model.predict(X_test)
     
     # index start from 0

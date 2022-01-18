@@ -41,6 +41,9 @@ def clean_data(df):
     # concatenate the original dataframe with the new `categories` dataframe
     df = pd.concat([df,categories], axis=1)
     
+    # droping rows that has multiple genres
+    df = df[df['related'] != 2]
+    
     # drop duplicates
     df.drop_duplicates(keep = 'last', inplace = True)
     

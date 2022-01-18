@@ -11,14 +11,14 @@ This project include a web app where an emergency worker can input a new message
  There are three components you'll need to complete for this project.
 
 ### 1. ETL Pipeline
- In a Python script, ``` process_data.py```, write a data cleaning pipeline that:
-- Loads the ``` messages ```and ```categories``` datasets
+ In a Python script,  process_data.py, write a data cleaning pipeline that:
+- Loads the  messages and categories datasets
 - Merges the two datasets
 - Cleans the data
 - Stores it in a SQLite database
 
 ### 2. ML Pipeline
-In a Python script, ```train_classifier.py```, write a machine learning pipeline that:
+In a Python script, train_classifier.py, write a machine learning pipeline that:
 
 - Loads data from the SQLite database
 - Splits the dataset into training and test sets

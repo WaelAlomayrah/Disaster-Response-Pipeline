@@ -15,6 +15,11 @@ from sqlalchemy import create_engine
 app = Flask(__name__)
 
 def tokenize(text):
+    '''
+    This method receive a text and seperate it into words and store them into an array     
+    and return the array     
+    '''
+
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
 
@@ -37,7 +42,10 @@ model = joblib.load("../models/classifier.pkl")
 @app.route('/')
 @app.route('/index')
 def index():
-    
+    '''
+    This method generates graphs and store thim into array and store them into a Json file
+    and return it using render_template()
+    '''
     # extract data needed for visuals
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']

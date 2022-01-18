@@ -48,3 +48,7 @@ We used provided  flask web app form Udacity (with some modification).
     `python run.py`
 
 3. Go to http://0.0.0.0:3001/
+
+## Acknowledgments
+I would like to thank Udacity for their instructions and help.
+And I would like to thank 8 Figur team too.

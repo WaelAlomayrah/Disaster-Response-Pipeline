@@ -5,7 +5,12 @@ import sys
 
 
 def load_data(messages_filepath, categories_filepath):
-    # load data from database
+    '''
+    This method receives two file paths for .csv files 
+    and read them into two dataframes and merges them 
+    and return the merged dataframe
+    '''
+    # read data from the .csv files
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
     df = pd.merge(messages,categories,on='id',how='inner')
@@ -13,7 +18,12 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
-
+    
+    '''
+    This method receive a dataframe and cleane it 
+    and fix what needed to be fixed 
+    and return the dataframe after the cleaning
+    '''
     # create a dataframe of the 36 individual category columns
     categories = df.categories.str.split(pat=';', expand=True)
    
@@ -51,6 +61,10 @@ def clean_data(df):
 
 
 def save_data(df, database_filename):
+    '''
+    This method receive a dataframe and database_file name
+    it stores the dataframe into a database file
+    '''
     engine = create_engine('sqlite:///{}'.format(database_filename))
     df.to_sql('Messages', engine, index=False,if_exists='replace')  
 
